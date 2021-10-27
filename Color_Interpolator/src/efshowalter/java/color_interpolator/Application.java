@@ -27,8 +27,4 @@ public class Application {
 				Constants.UR_START, Constants.LL_START, Constants.LR_START));
 		window.setVisible(true);
 	}
-	
-	private void draw() {
-		// TODO implement this
-	}
 }
