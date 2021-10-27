@@ -23,44 +23,20 @@ public class DrawComponent extends Component implements MouseListener {
 		this.addMouseListener(this);
 	}
 
-	public void paint(Graphics g) { 
-		setCorners(g);
-		
-		for (int x = 0; x < Constants.WINDOW_WIDTH; x++) {
-			for (int y = 0; y < Constants.WINDOW_HEIGHT; y++) {
+	public void paint(Graphics g) { 	
+		for (int x = 0; x < Constants.WINDOW_WIDTH - 1; x++) {
+			for (int y = 0; y < Constants.WINDOW_HEIGHT - 1; y++) {
 				Color colorTop = ip.interpolateUnevenly(upperLeft.getColor(), upperRight.getColor(), 
-						x, Constants.WINDOW_WIDTH);
+						x, Constants.WINDOW_WIDTH - 1);
 				Color colorBot = ip.interpolateUnevenly(lowerLeft.getColor(), lowerRight.getColor(), 
-						x, Constants.WINDOW_WIDTH);
+						x, Constants.WINDOW_WIDTH - 1);
 				
-				Color toPaint = ip.interpolateUnevenly(colorTop, colorBot, y, Constants.WINDOW_HEIGHT);
+				Color toPaint = ip.interpolateUnevenly(colorTop, colorBot, y, Constants.WINDOW_HEIGHT - 1);
 				
 				g.setColor(toPaint);
 				g.drawLine(x, y, x, y);
 			}
 		}
-	}
-	
-	private void setCorners(Graphics g) {
-		// set upper left
-		g.setColor(upperLeft.getColor());
-		g.drawLine(upperLeft.getX(), upperLeft.getY(), 
-				upperLeft.getX(), upperLeft.getY());
-				
-		// set upper right
-		g.setColor(upperRight.getColor());
-		g.drawLine(upperRight.getX(), upperRight.getY(), 
-				upperRight.getX(), upperRight.getY());
-				
-		// set lower left
-		g.setColor(lowerLeft.getColor());
-		g.drawLine(lowerLeft.getX(), lowerLeft.getY(), 
-				lowerLeft.getX(), lowerLeft.getY());
-				
-		// set lower right
-		g.setColor(lowerRight.getColor());
-		g.drawLine(lowerRight.getX(), lowerRight.getY(),
-				lowerRight.getX(), lowerRight.getY());
 	}
 
 	@Override
@@ -81,7 +57,6 @@ public class DrawComponent extends Component implements MouseListener {
 				e.getY() > Math.round(Constants.WINDOW_HEIGHT - (Constants.WINDOW_HEIGHT / 4))) {
 			System.out.println("Click: Lower right corner");
 		}
-		
 	}
 
 	@Override
