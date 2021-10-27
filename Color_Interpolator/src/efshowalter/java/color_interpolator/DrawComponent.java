@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class DrawComponent extends Component {
+public class DrawComponent extends Component implements MouseListener {
 	private Interpolator ip;
 	private ColorPixel upperLeft, upperRight, lowerLeft, lowerRight;
 	
@@ -17,6 +19,8 @@ public class DrawComponent extends Component {
 		this.upperRight = upperRight;
 		this.lowerLeft = lowerLeft;
 		this.lowerRight = lowerRight;
+		
+		this.addMouseListener(this);
 	}
 
 	public void paint(Graphics g) { 
@@ -57,5 +61,47 @@ public class DrawComponent extends Component {
 		g.setColor(lowerRight.getColor());
 		g.drawLine(lowerRight.getX(), lowerRight.getY(),
 				lowerRight.getX(), lowerRight.getY());
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (e.getX() < Math.round(Constants.WINDOW_WIDTH / 4) && 
+				e.getY() < Math.round(Constants.WINDOW_HEIGHT / 4)) {
+			System.out.println("Click: Upper left corner");
+		}
+		else if (e.getX() > Math.round(Constants.WINDOW_WIDTH - (Constants.WINDOW_WIDTH / 4)) && 
+				e.getY() < Math.round(Constants.WINDOW_HEIGHT / 4)) {
+			System.out.println("Click: Upper right corner");
+		}
+		else if (e.getX() < Math.round(Constants.WINDOW_WIDTH / 4) && 
+				e.getY() > Math.round(Constants.WINDOW_HEIGHT - (Constants.WINDOW_HEIGHT / 4))) {
+			System.out.println("Click: Lower left corner");
+		}
+		else if (e.getX() > Math.round(Constants.WINDOW_WIDTH - (Constants.WINDOW_WIDTH / 4)) && 
+				e.getY() > Math.round(Constants.WINDOW_HEIGHT - (Constants.WINDOW_HEIGHT / 4))) {
+			System.out.println("Click: Lower right corner");
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
