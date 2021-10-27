@@ -1,5 +1,7 @@
 package efshowalter.java.color_interpolator;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 
 /** 
@@ -11,21 +13,22 @@ import javax.swing.JFrame;
  * **/
 
 public class Application {
-	JFrame window;
-	Interpolator ip;
+	private JFrame window;
 	
-	Application() {
+	public Application() {
 		prepareGUI();
 	}
 	
-	void prepareGUI() {
+	private void prepareGUI() {
 		window = new JFrame();
 		window.setSize(800, 600);
 		window.setLocation(100, 50);
+		window.getContentPane().add(new DrawComponent(Constants.UL_START, 
+				Constants.UR_START, Constants.LL_START, Constants.LR_START));
 		window.setVisible(true);
 	}
 	
-	void draw() {
+	private void draw() {
 		// TODO implement this
 	}
 }

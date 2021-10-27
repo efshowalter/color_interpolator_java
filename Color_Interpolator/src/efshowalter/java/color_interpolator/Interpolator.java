@@ -29,12 +29,23 @@ public class Interpolator {
 	}
 	
 	// Interpolate given two colors and the percentage of the first color
-	public Color interpolateUnevenly(Color first, Color second, float percentFirst) {
-		float r = first.getRed() * percentFirst + second.getRed() * (1 - percentFirst);
-		float g = first.getGreen() * percentFirst + second.getGreen() * (1 - percentFirst);
-		float b = first.getBlue() * percentFirst + second.getBlue() * (1 - percentFirst);
-		float a = first.getAlpha() * percentFirst + second.getAlpha() * (1 - percentFirst);
+	public Color interpolateUnevenly(Color first, Color second, int amtFirst, int max) {
+		int r1 = first.getRed() * (max - amtFirst);
+		int r2 = second.getRed() * (amtFirst);
+		int r = Math.round(Math.floorDiv(r1 + r2, max));
 		
-		return new Color(Math.round(r), Math.round(g), Math.round(b), Math.round(a));
+		int g1 = first.getGreen() * (max - amtFirst);
+		int g2 = second.getGreen() * (amtFirst);
+		int g = Math.round(Math.floorDiv(g1 + g2, max));
+		
+		int b1 = first.getBlue() * (max - amtFirst);
+		int b2 = second.getBlue() * (amtFirst);
+		int b = Math.round(Math.floorDiv(b1 + b2, max));
+		
+		int a1 = first.getAlpha() * (max - amtFirst);
+		int a2 = second.getAlpha() * (amtFirst);
+		int a = Math.round(Math.floorDiv(a1 + a2, max));
+		
+		return new Color(r, g, b, a);
 	}
 }
