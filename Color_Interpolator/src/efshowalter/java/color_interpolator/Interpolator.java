@@ -20,13 +20,21 @@ public class Interpolator {
 	
 	// Interpolate the midpoint between two colors.
 	public Color interpolateEvenly(Color first, Color second) {
-		// TODO implement this
-		return new Color(0, 0, 0, 0);
+		int r = Math.floorDiv(first.getRed() + second.getRed(), 2);
+		int g = Math.floorDiv(first.getGreen() + second.getGreen(), 2);
+		int b = Math.floorDiv(first.getBlue() + second.getBlue(), 2);
+		int a = Math.floorDiv(first.getAlpha() + second.getAlpha(), 2);
+		
+		return new Color(r, g, b, a);
 	}
 	
 	// Interpolate given two colors and the percentage of the first color
 	public Color interpolateUnevenly(Color first, Color second, float percentFirst) {
-		// TODO implement this
-		return new Color(0, 0, 0, 0);
+		float r = first.getRed() * percentFirst + second.getRed() * (1 - percentFirst);
+		float g = first.getGreen() * percentFirst + second.getGreen() * (1 - percentFirst);
+		float b = first.getBlue() * percentFirst + second.getBlue() * (1 - percentFirst);
+		float a = first.getAlpha() * percentFirst + second.getAlpha() * (1 - percentFirst);
+		
+		return new Color(Math.round(r), Math.round(g), Math.round(b), Math.round(a));
 	}
 }
