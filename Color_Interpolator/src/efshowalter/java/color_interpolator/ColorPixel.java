@@ -16,6 +16,10 @@ public class ColorPixel {
 		return color;
 	}
 	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	
 	public int getX() {
 		return x;
 	}

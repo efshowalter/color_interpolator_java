@@ -37,24 +37,30 @@ public class DrawComponent extends Component implements MouseListener {
 			}
 		}
 	}
+	
+	private void changeColor(ColorPixel color) {
+		JOptionPaneColorChange popup = new JOptionPaneColorChange(this);
+		color.setColor(popup.getColor());
+		repaint();
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getX() < Math.round(Constants.WINDOW_WIDTH / 4) && 
 				e.getY() < Math.round(Constants.WINDOW_HEIGHT / 4)) {
-			System.out.println("Click: Upper left corner");
+			changeColor(upperLeft);
 		}
 		else if (e.getX() > Math.round(Constants.WINDOW_WIDTH - (Constants.WINDOW_WIDTH / 4)) && 
 				e.getY() < Math.round(Constants.WINDOW_HEIGHT / 4)) {
-			System.out.println("Click: Upper right corner");
+			changeColor(upperRight);
 		}
 		else if (e.getX() < Math.round(Constants.WINDOW_WIDTH / 4) && 
 				e.getY() > Math.round(Constants.WINDOW_HEIGHT - (Constants.WINDOW_HEIGHT / 4))) {
-			System.out.println("Click: Lower left corner");
+			changeColor(lowerLeft);
 		}
 		else if (e.getX() > Math.round(Constants.WINDOW_WIDTH - (Constants.WINDOW_WIDTH / 4)) && 
 				e.getY() > Math.round(Constants.WINDOW_HEIGHT - (Constants.WINDOW_HEIGHT / 4))) {
-			System.out.println("Click: Lower right corner");
+			changeColor(lowerRight);
 		}
 	}
 
