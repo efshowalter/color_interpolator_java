@@ -2,6 +2,12 @@ package efshowalter.java.color_interpolator;
 
 import java.awt.Color;
 
+/**
+ * A simple class that serves as a container for a color and a pixel coordinate.
+ * 
+ * @author efshowalter
+ */
+
 public class ColorPixel {
 	private Color color;
 	private int x, y;

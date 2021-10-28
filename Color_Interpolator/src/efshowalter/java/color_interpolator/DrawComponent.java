@@ -6,6 +6,14 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * The main component of the program - handles the painting and repainting of the application and utilizes 
+ * the color interpolator to create and update each pixel's color. Also serves as a mouse listener and calls
+ * the JOptionPaneColorChange class to call for values for a new color.
+ * 
+ * @author efshowalter
+ */
+
 public class DrawComponent extends Component implements MouseListener {
 	private Interpolator ip;
 	private ColorPixel upperLeft, upperRight, lowerLeft, lowerRight;
@@ -66,22 +74,21 @@ public class DrawComponent extends Component implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		// Unused.
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		// Unused.
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub	
+		// Unused.	
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		// Unused.
 	}
 }

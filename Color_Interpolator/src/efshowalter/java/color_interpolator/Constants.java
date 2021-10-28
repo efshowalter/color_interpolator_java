@@ -2,6 +2,12 @@ package efshowalter.java.color_interpolator;
 
 import java.awt.Color;
 
+/**
+ * Constants defining the width and height of the window and the four default colors.
+ * 
+ * @author efshowalter
+ */
+
 public final class Constants {
 	
 	private Constants() {}

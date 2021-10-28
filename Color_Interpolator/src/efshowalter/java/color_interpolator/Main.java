@@ -1,7 +1,11 @@
 package efshowalter.java.color_interpolator;
 
 /**
- * This is the Main class for the color interpolator application.
+ * Color Interpolator Application by Evelyn Showalter
+ * 
+ * Application that generates a rectangle where each corner holds a different color and all other pixel colors
+ * are determined by interpolating these four values. The colors are changeable by clicking near the corners
+ * and entering valid RGBA values - bogus values will result in a default to white.
  * 
  * @author efshowalter
  *

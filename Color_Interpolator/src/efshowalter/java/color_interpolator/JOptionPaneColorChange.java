@@ -9,17 +9,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * A class for building and formatting the popup message, then storing the resulting color for retrieval
+ * by the DrawComponent.
+ * 
+ * @author efshowalter
+ */
+
 public class JOptionPaneColorChange {
 	private JTextField red, green, blue, alpha;
 	private Color color;
 	
-//	private Object[] message = {
-//			"Red:", red,
-//			"Green:", green,
-//			"Blue:", blue,
-//			"Alpha:", alpha,
-//	};
-//	
 	public JOptionPaneColorChange(Component parent) {
 		red = new JTextField();
 		green = new JTextField();
@@ -51,10 +51,7 @@ public class JOptionPaneColorChange {
 			} catch (Exception e) {
 				color = Color.WHITE;
 			}
-			
 		}
-		
-		
 	}
 	
 	public Color getColor() {

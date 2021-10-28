@@ -3,7 +3,7 @@ package efshowalter.java.color_interpolator;
 import java.awt.Color;
 
 /** 
- * The interpolator class is a container for the methods used to generate new colors.
+ * A container for the methods used to generate new colors.
  * It has no attributes of its own, only methods that take in two color objects and 
  * return the appropriate interpolated value. It supports even interpolation (50/50
  * of each color) and uneven interpolation, which takes in a third value indicating the
